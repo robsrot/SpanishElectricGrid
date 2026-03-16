@@ -207,3 +207,11 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# DGT large data files (regenerable from notebook)
+mobility_electric_routes/Codigo/Data/zip/
+mobility_electric_routes/Codigo/Data/txt/
+mobility_electric_routes/Codigo/Data/csv/
+
+# Large generated outputs
+notebooks/outputs/
