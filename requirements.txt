@@ -1,19 +1,43 @@
-asyncpg==0.31.0 
-psycopg2<=3.3.3 
-python-dotenv==1.2.2
-polars==1.38.1
-connectorx==0.4.5
-pyarrow==23.0.1
-adbc-driver-postgresql==1.10.0
+# ── IE Iberdrola Datathon 2026 — Python Dependencies ─────────────────────────
+# Activate the virtual environment before installing:
+#   Windows : .venv\Scripts\activate
+#   macOS   : source .venv/bin/activate
+# Then run: pip install -r requirements.txt
+
+# ── Core data science ─────────────────────────────────────────────────────────
+numpy==2.4.3
+pandas==3.0.1
+scipy>=1.8
+
+# ── Visualisation ─────────────────────────────────────────────────────────────
+matplotlib==3.10.8
+seaborn==0.13.2
+plotly>=5.0               # interactive maps (notebooks 2.2, 2.3)
+
+# ── Time-series & statistics ──────────────────────────────────────────────────
+statsmodels==0.14.6       # SARIMA modelling (notebook 2.1)
+pmdarima==2.1.1           # auto-ARIMA (notebook 2.1)
+prophet>=1.1              # Facebook Prophet baseline model (notebook 2.1)
+
+# ── Machine learning ──────────────────────────────────────────────────────────
+scikit-learn>=1.3         # metrics, train/test split (notebook 2.1)
+
+# ── File formats ──────────────────────────────────────────────────────────────
+pyarrow==23.0.1           # parquet file reading (DGT raw data)
+pypdf2==3.0.1             # PDF parsing
+
+# ── Web & HTTP ────────────────────────────────────────────────────────────────
+requests==2.32.5          # GeoJSON download (notebook 2.2)
+
+# ── Geospatial ────────────────────────────────────────────────────────────────
 geopandas==1.1.3
 folium==0.20.0
 pyproj==3.7.2
-numpy==2.4.3
-pandas==3.0.1
-requests==2.32.5
-pypdf2==3.0.1
-matplotlib==3.10.8
-seaborn==0.13.2
-statsmodels==0.14.6
-pmdarima==2.1.1
-scipy>=1.8
+
+# ── Database (colleague's supply-side pipeline) ───────────────────────────────
+asyncpg==0.31.0
+psycopg2-binary<=3.3.3
+python-dotenv==1.2.2
+polars==1.38.1
+connectorx==0.4.5
+adbc-driver-postgresql==1.10.0
