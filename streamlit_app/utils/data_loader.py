@@ -56,7 +56,7 @@ def load_ev_type_mix() -> pd.DataFrame:
 
 @st.cache_data
 def load_provinces_geojson_str() -> str:
-    with open(DATA_DIR / "spain_provinces.geojson") as f:
+    with open(DATA_DIR / "spain_provinces.geojson", encoding="utf-8") as f:
         return f.read()
 
 

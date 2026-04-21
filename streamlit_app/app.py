@@ -8,7 +8,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 
-from utils.data_loader import SAMPLE_NOTICE, load_emerging, load_file1, load_forecast
+from utils.data_loader import load_emerging, load_file1, load_forecast
 from utils.sidebar import render_sidebar
 
 st.set_page_config(
@@ -35,7 +35,6 @@ st.markdown(
     'and *which markets* to enter first — before Repsol and Endesa X do.',
     unsafe_allow_html=True,
 )
-st.info(SAMPLE_NOTICE, icon="ℹ️")
 st.markdown("---")
 
 # ── KPI Cards ────────────────────────────────────────────────────────────────
