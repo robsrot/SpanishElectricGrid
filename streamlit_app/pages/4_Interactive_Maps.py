@@ -1,7 +1,4 @@
-import http.server
-import socketserver
 import sys
-import threading
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -19,8 +16,7 @@ st.set_page_config(
 
 render_sidebar()
 
-OUTPUTS_DIR = Path(__file__).parent.parent.parent / "notebooks" / "outputs"
-MAP_SERVER_PORT = 8600
+STATIC_DIR = Path(__file__).parent.parent / "static" / "maps"
 
 MAPS = {
     "map1": {
@@ -67,8 +63,8 @@ MAPS = {
         "label": "BI Map — Full Network Overview",
         "file": "bi_map_optimized.html",
         "description": (
-            "All layers: proposed stations, traffic intensity, "
-            "existing chargers, grid capacity nodes."
+            "All layers: proposed stations, friction points, "
+            "top 10 priority Congested nodes, TEN-T corridors."
         ),
         "icon": "🔍",
         "default": True,
@@ -76,43 +72,16 @@ MAPS = {
 }
 
 
-@st.cache_resource
-def _start_map_server() -> int:
-    """Start a one-shot HTTP file server for the outputs directory.
-    Runs in a daemon thread — lives for the Streamlit process lifetime."""
-    directory = str(OUTPUTS_DIR)
-
-    class _Handler(http.server.SimpleHTTPRequestHandler):
-        def __init__(self, *args, **kwargs):
-            super().__init__(*args, directory=directory, **kwargs)
-
-        def log_message(self, fmt, *args):  # silence request logs
-            pass
-
-    server = socketserver.TCPServer(
-        ("127.0.0.1", MAP_SERVER_PORT), _Handler
-    )
-    thread = threading.Thread(target=server.serve_forever, daemon=True)
-    thread.start()
-    return MAP_SERVER_PORT
-
-
-# Start server once; returns cached port on subsequent calls
-try:
-    _port = _start_map_server()
-    _server_ok = True
-except OSError:
-    # Port already in use — server running from a previous hot-reload
-    _port = MAP_SERVER_PORT
-    _server_ok = True
+def _read_map(path: Path) -> str:
+    with open(path, "r", encoding="utf-8") as f:
+        return f.read()
 
 
 # ── Header ────────────────────────────────────────────────────────────────────
 st.markdown("## 🌍 Interactive Maps — Full Layer Explorer")
 st.markdown(
     '<span style="font-size:0.8rem;color:#94A3B8;">'
-    "Maps are served via a local file server — no size limit, "
-    "correct MIME types, browser-cached between toggles."
+    "Toggle maps on and off using the controls below."
     "</span>",
     unsafe_allow_html=True,
 )
@@ -124,9 +93,6 @@ st.info(
 )
 st.warning(
     "**BI Map — please be patient.** "
-    "This map was heavily optimised to be as smooth as possible — "
-    "6,896 existing chargers have been consolidated into a single "
-    "rendering layer and all data has been sanitised. "
     "The more additional layers you enable on top, "
     "the longer it may take. Once loaded, panning and zooming "
     "will be fluid.",
@@ -145,10 +111,10 @@ cols = st.columns(len(MAPS))
 toggles = {}
 for col, (key, meta) in zip(cols, MAPS.items()):
     with col:
-        available = (OUTPUTS_DIR / meta["file"]).exists()
+        available = (STATIC_DIR / meta["file"]).exists()
         short_label = meta["label"].split("—")[0].strip()
         size_mb = (
-            round((OUTPUTS_DIR / meta["file"]).stat().st_size / 1e6)
+            round((STATIC_DIR / meta["file"]).stat().st_size / 1e6, 1)
             if available
             else 0
         )
@@ -174,9 +140,7 @@ if not active:
 else:
     for key in active:
         meta = MAPS[key]
-        src = OUTPUTS_DIR / meta["file"]
-        size_mb = round(src.stat().st_size / 1e6)
-        map_url = f"http://localhost:{_port}/{meta['file']}"
+        src = STATIC_DIR / meta["file"]
 
         st.markdown(
             f'<p style="color:#00B140;font-size:1.05rem;font-weight:600;'
@@ -189,13 +153,14 @@ else:
             unsafe_allow_html=True,
         )
 
-        if size_mb >= 50:
+        size_mb = round(src.stat().st_size / 1e6, 1)
+        if size_mb >= 5:
             st.warning(
                 "This map contains many layers — the initial load "
                 "may take a moment. Please be patient, it will be "
                 "worth it.",
                 icon="⏳",
             )
-        components.iframe(map_url, height=560, scrolling=False)
 
+        components.html(_read_map(src), height=560, scrolling=False)
         st.markdown("<br>", unsafe_allow_html=True)
