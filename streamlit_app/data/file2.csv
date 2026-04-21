@@ -2,190 +2,112 @@ location_id,latitude,longitude,route_segment,n_chargers_proposed,grid_status,dis
 IBE_001,40.397195,-3.772053,M-502,10,Sufficient,i-DE,1500,0.7542,EXD,motorway_services
 IBE_002,41.370678,2.09003,N-340,10,Sufficient,Endesa,1500,0.6057,,petrol_station
 IBE_003,39.153166,-0.528185,A-7,10,Sufficient,i-DE,1500,0.5672,,motorway_services
-IBE_004,40.290222,-3.299778,A-3,2,Congested,i-DE,300,0.5287,Moeve,petrol_station
-IBE_005,37.372725,-5.921735,A-8028,8,Sufficient,Endesa,1200,0.5238,,motorway_services
-IBE_006,37.717639,-1.415639,A-7,8,Sufficient,i-DE,1200,0.5209,Repsol,petrol_station
-IBE_007,38.39051,-0.505658,A-70,9,Sufficient,i-DE,1350,0.5144,Estación de Servicio Sol y Luz,petrol_station
-IBE_008,41.64806,2.427255,AP-7N,2,Congested,Endesa,300,0.4855,Montseny,motorway_services
-IBE_009,38.077179,-0.745131,AP-7N,7,Sufficient,i-DE,1050,0.4698,Benijovar Express,petrol_station
-IBE_010,41.105417,1.197528,N-340,5,Sufficient,Viesgo,750,0.4609,Shell,petrol_station
-IBE_011,43.487833,-6.110667,A-8,6,Sufficient,Viesgo,900,0.4589,Galp,petrol_station
-IBE_012,37.94053,-4.681002,N-4A,4,Sufficient,Endesa,600,0.4565,,motorway_services
-IBE_013,38.729681,-0.938202,A-31,6,Sufficient,i-DE,900,0.4494,,motorway_services
-IBE_014,37.474755,-1.779576,A-7,7,Sufficient,i-DE,1050,0.4458,Almendricos,train_station
-IBE_015,43.215701,-7.309026,N-640,3,Sufficient,Viesgo,450,0.4455,Estación de Servizo Granxeiro,petrol_station
-IBE_016,39.596723,-0.468073,A-7,2,Congested,i-DE,300,0.4454,CENTRE LA VEREDA,petrol_station
-IBE_017,42.002011,2.292225,N-152Z,5,Sufficient,Endesa,750,0.4398,Esclat,supermarket
-IBE_018,42.116596,-1.738241,AP-68,6,Sufficient,i-DE,900,0.4321,,motorway_services
-IBE_019,37.596373,-0.965912,N-332,4,Sufficient,i-DE,600,0.4236,,motorway_services
-IBE_020,41.638161,-4.746725,N-601,4,Sufficient,i-DE,600,0.4229,Estación de Servicio La Esmeralda,petrol_station
-IBE_021,36.456317,-6.218776,A-4,2,Congested,Endesa,300,0.4193,Moeve,petrol_station
-IBE_022,43.674314,-7.4211,N-642,3,Sufficient,Viesgo,450,0.4162,Repsol,petrol_station
-IBE_023,37.264851,-6.838579,A-49,2,Congested,Endesa,300,0.4139,Repsol,petrol_station
-IBE_024,42.513788,2.853668,AP-7N,2,Congested,Endesa,300,0.4085,Le Relais des Chartreuses,hotel
-IBE_025,41.546368,-5.707888,A-66,5,Sufficient,i-DE,750,0.3983,,motorway_services
-IBE_026,43.384392,-8.394669,AP-9,2,Congested,i-DE,300,0.3974,Eurostars Ciudad de A Coruña,hotel
-IBE_027,42.39381,-7.190229,N-120,3,Sufficient,i-DE,450,0.395,,rest_area
-IBE_028,43.54614,-6.60476,N-634,3,Sufficient,Viesgo,450,0.3893,La Oturense,petrol_station
-IBE_029,39.934639,-0.192028,AP-7N,2,Congested,i-DE,300,0.3892,Cooperativa Agrícola Valenciana de Betín a,petrol_station
-IBE_030,36.659067,-4.570736,A-7,2,Congested,Endesa,300,0.3874,BP Alhaurín de la Torre,petrol_station
-IBE_031,40.082889,-5.879972,N-110,3,Sufficient,i-DE,450,0.3845,SCL NTRA.SRA.VISO,petrol_station
-IBE_032,39.602865,-2.676942,N-420,2,Sufficient,Endesa,300,0.3825,Área de descanso Ruta de Don Quijote,rest_area
-IBE_033,40.36538,-4.315004,M-501,2,Congested,i-DE,300,0.3824,,motorway_services
-IBE_034,42.293596,-8.551968,N-550,6,Sufficient,i-DE,900,0.3805,Estación de Servicio A Chan de Amoedo,petrol_station
-IBE_035,38.751018,-0.439076,N-340,4,Sufficient,i-DE,600,0.3731,Petroprix,petrol_station
-IBE_036,42.039975,-6.925242,A-52,5,Sufficient,Endesa,750,0.3644,,rest_area
-IBE_037,40.731506,-3.510577,N-320,2,Congested,i-DE,300,0.3606,Repsol,petrol_station
-IBE_038,40.011602,-2.107443,N-320,3,Sufficient,Endesa,450,0.3545,Repsol,petrol_station
-IBE_039,38.046445,-1.209111,N-301,2,Congested,i-DE,300,0.3475,Repsol,petrol_station
-IBE_040,42.317634,1.387999,N-260,2,Congested,Endesa,300,0.3422,Mapisaoil,petrol_station
-IBE_041,36.798093,-4.117799,A-7,2,Congested,Endesa,300,0.3382,,rest_area
-IBE_042,38.839549,0.098094,N-332,2,Congested,i-DE,300,0.3363,Repsol,petrol_station
-IBE_043,43.190657,-2.895993,AP-68,2,Congested,i-DE,300,0.3353,Área de Servicio Janbide,motorway_services
-IBE_044,40.020863,-3.64553,A-4,2,Congested,i-DE,300,0.3341,Moeve,petrol_station
-IBE_045,40.695476,-4.124058,N-6,2,Congested,i-DE,300,0.3338,Hostel Pepe's,hotel
-IBE_046,40.683278,0.46525,AP-7N,2,Congested,Endesa,300,0.3319,COOP. LA GALERA,petrol_station
-IBE_047,38.808202,-2.327666,N-322,2,Congested,i-DE,300,0.3318,Repsol,petrol_station
-IBE_048,41.134897,-3.580764,N-1A,2,Congested,i-DE,300,0.3281,,motorway_services
-IBE_049,42.070694,2.95875,AP-7N,2,Congested,Endesa,300,0.3265,ENCO SANT JORDI,petrol_station
-IBE_050,41.674844,-2.162067,N-234,3,Sufficient,Endesa,450,0.3264,Repsol,petrol_station
-IBE_051,41.285919,1.618558,N-340,2,Congested,Endesa,300,0.3235,Moeve,petrol_station
-IBE_052,43.177329,-2.05518,A-1,2,Congested,i-DE,300,0.3228,Repsol,petrol_station
-IBE_053,43.343467,-3.499898,A-8,2,Congested,Viesgo,300,0.3211,Votoaventura,sports_centre
-IBE_054,36.189892,-5.431268,A-7,2,Congested,Endesa,300,0.3157,Estación de Servicio Nieves,motorway_services
-IBE_055,42.778074,-8.551252,AP-9,2,Congested,i-DE,300,0.3128,,rest_area
-IBE_056,36.81483,-2.227423,A-7,2,Congested,Endesa,300,0.3128,Supremo,supermarket
-IBE_057,37.001658,-5.938292,AP-4,2,Congested,Endesa,300,0.3101,Area de servicio Cerro del Fantasma,motorway_services
-IBE_058,42.448134,-2.499941,AP-68,6,Sufficient,i-DE,900,0.3081,,rest_area
-IBE_059,36.486742,-4.966318,A-7,2,Congested,Endesa,300,0.3073,Galp,petrol_station
-IBE_060,42.661268,0.209481,A-138,2,Congested,Endesa,300,0.3056,Repsol,petrol_station
-IBE_061,41.969177,-6.378536,A-52,6,Moderate,i-DE,900,0.3056,Super Carmen,supermarket
-IBE_062,37.192723,-3.85299,A-92,2,Congested,Endesa,300,0.3045,Área de Servicio El Olivar,motorway_services
-IBE_063,40.975699,-2.130829,N-211,2,Congested,i-DE,300,0.3028,,rest_area
-IBE_064,41.599222,0.597861,N-240,2,Congested,Endesa,300,0.3027,Estació de Servei Nieves Lleida,petrol_station
-IBE_065,39.572934,-3.51645,A-4,6,Sufficient,Endesa,900,0.3009,Repsol,petrol_station
-IBE_066,42.748472,-1.641573,N-121,2,Congested,i-DE,300,0.3003,,motorway_services
-IBE_067,36.902535,-3.42618,A-44,2,Congested,Endesa,300,0.2963,Moeve,petrol_station
-IBE_068,37.387022,-6.399692,A-49,2,Congested,Endesa,300,0.296,Moeve,petrol_station
-IBE_069,39.654111,-4.983972,N-502,2,Congested,i-DE,300,0.2949,Petronor,petrol_station
-IBE_070,41.500636,-0.029095,N-2,2,Congested,Endesa,300,0.2938,Repsol,petrol_station
-IBE_071,42.650964,-7.710317,N-540,4,Sufficient,i-DE,600,0.2918,,rest_area
-IBE_072,43.209989,-5.763399,A-66,6,Moderate,Viesgo,900,0.2877,Shell,petrol_station
-IBE_073,42.916866,-8.065269,N-547,2,Congested,i-DE,300,0.2866,,rest_area
-IBE_074,36.978705,-4.896842,A-357,2,Congested,Endesa,300,0.2837,Estación de Servicio Moeve Teba,petrol_station
-IBE_075,36.747746,-2.735929,A-7,2,Congested,Endesa,300,0.2822,"FERTOAL, S.L.",petrol_station
-IBE_076,39.973309,-4.752576,N-5A,2,Congested,i-DE,300,0.2815,Estación de Servicio Ballenoil Cazalegas,petrol_station
-IBE_077,41.708492,-2.775156,N-122,2,Congested,i-DE,300,0.2812,,rest_area
-IBE_078,42.722178,-3.801541,N-623,2,Congested,i-DE,300,0.2774,,rest_area
-IBE_079,37.968273,-6.306574,A-66,2,Congested,Endesa,300,0.2753,Estación de Servicio Hermanos Nieto Arteaga,petrol_station
-IBE_080,39.471936,-1.009396,A-3,2,Congested,i-DE,300,0.2746,Área de Servicio El Rebollar,motorway_services
-IBE_081,40.660106,-0.06851,N-232,2,Congested,Endesa,300,0.2727,,motorway_services
-IBE_082,41.660624,-0.925315,N-232,2,Congested,Endesa,300,0.2713,Estación de Servicio El Portazgo,motorway_services
-IBE_083,40.859515,-2.83577,A-2,2,Congested,i-DE,300,0.2706,,motorway_services
-IBE_084,37.227207,-5.319643,A-92,2,Congested,Endesa,300,0.27,Estación de Servicio Repsol José Sancho Castaño,petrol_station
-IBE_085,39.450894,-6.502413,N-521,2,Congested,i-DE,300,0.2675,Galp Malpa,petrol_station
-IBE_086,39.085942,-5.891292,N-430,2,Congested,i-DE,300,0.2673,Estación de Servicio Juan Eladio Pulido Redondo,petrol_station
-IBE_087,43.365861,-5.271472,N-634,4,Moderate,Viesgo,600,0.2672,Repsol,petrol_station
-IBE_088,41.02833,-0.806565,A-222,2,Congested,Endesa,300,0.2667,,motorway_services
-IBE_089,42.466512,-3.448068,AP-1,2,Congested,i-DE,300,0.2666,,rest_area
-IBE_090,40.588172,-0.987763,N-420,2,Congested,Endesa,300,0.2665,Cereales Teruel,petrol_station
-IBE_091,37.606578,-2.208942,A-92N,2,Congested,Endesa,300,0.2615,Área de Descanso Los Nogales,rest_area
-IBE_092,38.786671,-4.821154,N-502,2,Congested,i-DE,300,0.2592,HG Oil,petrol_station
-IBE_093,37.96298,-7.239013,N-433,2,Congested,Endesa,300,0.2585,Estación de Servicio Galp Rosal de la Frontera,petrol_station
-IBE_094,43.407626,-3.987307,A-67,2,Congested,Viesgo,300,0.257,Área de servicio de Gornazo,motorway_services
-IBE_095,37.529123,-4.157958,N-432,2,Congested,Endesa,300,0.2565,Estación de Servicio Los Llanos,petrol_station
-IBE_096,42.360747,-0.381314,A-23,2,Congested,Endesa,300,0.2564,,rest_area
-IBE_097,38.912123,-6.47793,A-5,2,Congested,Endesa,300,0.2549,COOP.NTRA.SRA.DE LA CARIDAD,petrol_station
-IBE_098,38.51249,-6.450616,N-432,2,Congested,Endesa,300,0.2545,Estación de Servicio Repsol Los Llanos,petrol_station
-IBE_099,40.849981,-6.050453,A-62,2,Congested,i-DE,300,0.2541,,motorway_services
-IBE_100,37.678002,-3.626248,N-323A,2,Congested,Endesa,300,0.2539,Área de Servicio El Oasis 2,motorway_services
-IBE_101,42.878462,-2.518907,A-1,2,Congested,i-DE,300,0.2525,Área de servicio Olaona,motorway_services
-IBE_102,42.541166,-5.725193,AP-71,2,Congested,i-DE,300,0.2521,,motorway_services
-IBE_103,39.17907,-1.788246,N-322,2,Congested,i-DE,300,0.2505,SAT MOTILLEJA,petrol_station
-IBE_104,37.112322,-2.618632,A-92,2,Congested,Endesa,300,0.2502,Venta del Pino,motorway_services
-IBE_105,42.050293,-0.909247,A-124,2,Congested,Endesa,300,0.2494,Arento Sierra de Luna,petrol_station
-IBE_106,40.930652,-4.96929,A-50,2,Congested,i-DE,300,0.2473,San Juan de la Cruz,petrol_station
-IBE_107,42.132218,-3.71687,A-1,2,Congested,i-DE,300,0.2453,Moeve,petrol_station
-IBE_108,41.081861,-0.251456,N-232,2,Congested,Endesa,300,0.2436,,rest_area
-IBE_109,38.215677,-5.830165,N-432,2,Congested,Endesa,300,0.2435,,rest_area
-IBE_110,39.863547,-4.072667,N-403,2,Congested,i-DE,300,0.2429,,motorway_services
-IBE_111,37.359376,-4.849521,A-318,2,Congested,Endesa,300,0.2429,Repsol,petrol_station
-IBE_112,42.022287,-5.853803,A-52,2,Congested,i-DE,300,0.2413,,motorway_services
-IBE_113,39.225796,-3.774394,N-401,2,Congested,i-DE,300,0.2401,COOP. NTRA. SRA FE,petrol_station
-IBE_114,39.565288,-5.832607,A-5,2,Congested,i-DE,300,0.2394,,motorway_services
-IBE_115,42.601766,-6.231964,N-6,2,Congested,i-DE,300,0.2392,,motorway_services
-IBE_116,37.429945,-2.908223,A-92N,2,Congested,Endesa,300,0.2392,,motorway_services
-IBE_117,41.617473,1.398949,N-2A,2,Congested,Endesa,300,0.2381,,motorway_services
-IBE_118,39.961172,-2.926007,A-3,2,Congested,i-DE,300,0.238,Area de Uclés 90,motorway_services
-IBE_119,42.228556,-7.925861,A-52,2,Congested,i-DE,300,0.2377,Moeve,petrol_station
-IBE_120,43.251926,-4.619754,N-621,2,Moderate,Viesgo,300,0.2376,,rest_area
-IBE_121,41.978278,0.490083,N-230,2,Congested,Endesa,300,0.2368,Moeve,petrol_station
-IBE_122,38.426271,-4.304437,N-420,2,Congested,i-DE,300,0.2354,,rest_area
-IBE_123,41.435583,-0.507806,N-232,2,Congested,Endesa,300,0.234,SOCIEDAD COOPERATIVA AGRARIA SANTA ANA,petrol_station
-IBE_124,37.725549,-6.695886,N-435,2,Congested,Endesa,300,0.2338,Área de descanso La Umbría,rest_area
-IBE_125,38.177681,-3.69979,A-4,2,Congested,Endesa,300,0.2322,Jaima Park,motorway_services
-IBE_126,39.846821,-1.272649,N-330,2,Congested,i-DE,300,0.2285,Repsol,petrol_station
-IBE_127,41.171273,-5.368526,N-620,2,Congested,i-DE,300,0.2281,Las Vegas Combuscyl,petrol_station
-IBE_128,37.309056,-7.344056,A-49,2,Congested,Endesa,300,0.2261,Moeve,petrol_station
-IBE_129,38.799224,-1.72913,N-301,2,Congested,i-DE,300,0.2259,Repsol,petrol_station
-IBE_130,39.127246,-3.108983,N-310,2,Congested,i-DE,300,0.2249,Estación de Servicio Repsol,petrol_station
-IBE_131,42.62337,-5.21067,N-625,2,Congested,i-DE,300,0.224,Estación de Servicio Sahechores de Rueda,petrol_station
-IBE_132,40.312041,0.327471,AP-7N,2,Congested,i-DE,300,0.2236,,rest_area
-IBE_133,38.590007,-3.473,A-4,2,Congested,i-DE,300,0.222,,motorway_services
-IBE_134,42.740898,-0.748308,A-176,2,Congested,Endesa,300,0.2215,Moeve,petrol_station
-IBE_135,42.346382,-4.851383,N-120,2,Congested,i-DE,300,0.2208,Descanso,rest_area
-IBE_136,40.99175,-1.579111,A-211,2,Congested,Endesa,300,0.2196,Petronor,petrol_station
-IBE_137,40.553176,-4.909673,N-502,2,Congested,i-DE,300,0.2183,Repsol,petrol_station
-IBE_138,42.066373,-2.528683,N-111,2,Congested,i-DE,300,0.2178,,rest_area
-IBE_139,38.858442,-6.947496,N-432,2,Congested,Endesa,300,0.2174,Ocho,petrol_station
-IBE_140,38.316751,-2.902082,N-322,2,Congested,Endesa,300,0.2173,Repsol,petrol_station
-IBE_141,38.391101,-4.996722,N-502,2,Congested,Endesa,300,0.2172,Sociedad Cooperativa Andaluza Nuestra Señora de Guía,petrol_station
-IBE_142,41.109086,0.53606,N-420,2,Congested,Endesa,300,0.2164,Estació de Servei Repsol Camposines SCP,petrol_station
-IBE_143,39.300833,-2.388889,N-301,2,Congested,i-DE,300,0.216,Top Oil,petrol_station
-IBE_144,37.948738,-4.219798,A-4,2,Congested,Endesa,300,0.2152,Estación de Servicio La Loperana,petrol_station
-IBE_145,41.447028,-1.706528,N-234,2,Congested,Endesa,300,0.2151,SAT 2563 NIÑO JESUS,petrol_station
-IBE_146,41.815678,-1.469992,A-121,2,Congested,Endesa,300,0.215,,petrol_station
-IBE_147,39.518891,-1.952784,A-3,2,Congested,i-DE,300,0.2148,,motorway_services
-IBE_148,39.478724,-7.00012,N-521,2,Sufficient,i-DE,300,0.2146,Estación de Servicio Salorino,petrol_station
-IBE_149,39.895639,-5.332826,A-5,2,Congested,i-DE,300,0.2135,Repsol,petrol_station
-IBE_150,39.110222,-5.333851,N-430,2,Congested,i-DE,300,0.2133,Moeve,petrol_station
-IBE_151,40.016528,-0.696306,N-234,2,Congested,Endesa,300,0.2118,Moeve,petrol_station
-IBE_152,38.872889,-4.042806,N-420,2,Congested,i-DE,300,0.2117,Repsol,petrol_station
-IBE_153,37.08229,-4.453869,A-7282,2,Congested,Endesa,300,0.2094,Repsol,petrol_station
-IBE_154,42.756637,0.695489,N-230,2,Congested,Endesa,300,0.2086,,rest_area
-IBE_155,36.446763,-5.749662,A-381,2,Congested,Endesa,300,0.2082,Abades Áreas (Alcalá de los Gazules),motorway_services
-IBE_156,41.612969,-4.175337,N-122,2,Congested,i-DE,300,0.2081,Estación de Servicio El Pinarillo,petrol_station
-IBE_157,41.879161,-7.488208,N-532,2,Congested,i-DE,300,0.208,,rest_area
-IBE_158,42.373583,-1.281889,A-127,2,Congested,Endesa,300,0.2066,CRISTO DEL CASTILLO,petrol_station
-IBE_159,41.599404,-3.353641,N-122,2,Congested,i-DE,300,0.2056,Galp,petrol_station
-IBE_160,41.267441,-1.247969,N-330,2,Congested,Endesa,300,0.2031,,rest_area
-IBE_161,41.143055,-4.191732,A-601,2,Congested,i-DE,300,0.2028,Repsol,petrol_station
-IBE_162,42.704539,-2.948612,AP-1,2,Congested,i-DE,300,0.2027,,rest_area
-IBE_163,42.658602,-4.372585,A-67,2,Congested,Viesgo,300,0.1991,Descanso Lavid,rest_area
-IBE_164,41.723387,-5.252654,N-6,2,Congested,i-DE,300,0.1991,Petronor,petrol_station
-IBE_165,38.417316,-1.571595,A-30,2,Congested,i-DE,300,0.1988,Moeve,petrol_station
-IBE_166,40.564361,-5.670556,N-630,2,Congested,i-DE,300,0.198,Repsol,petrol_station
-IBE_167,42.435024,1.965756,N-154,2,Congested,Endesa,300,0.1975,,rest_area
-IBE_168,42.031929,-4.299072,A-62,2,Congested,i-DE,300,0.1969,Área de Descanso Torquemada,rest_area
-IBE_169,35.8334,-5.35513,N-362,2,Congested,Endesa,300,0.1951,Afriquia,petrol_station
-IBE_170,40.356775,-2.396927,N-320,2,Congested,i-DE,300,0.1936,Estación de Servicio Moeve Cañaveras,petrol_station
-IBE_171,42.091936,-5.206749,N-601,2,Congested,i-DE,300,0.1926,Estación de Servicio Buenavista,petrol_station
-IBE_172,37.982333,-2.333532,A-330,2,Congested,Endesa,300,0.1922,Repsol,petrol_station
-IBE_173,39.882983,-6.276204,N-630,2,Congested,i-DE,300,0.1916,E.S. Vía de la Plata,motorway_services
-IBE_174,42.052139,-0.015222,N-240,2,Congested,Endesa,300,0.1914,Repsol,petrol_station
-IBE_175,40.64092,-6.47351,A-62,2,Congested,i-DE,300,0.1882,,rest_area
-IBE_176,40.503498,-0.52087,A-226,2,Congested,Endesa,300,0.1867,Hotel Mercadales,hotel
-IBE_177,43.029103,-1.334123,N-135,2,Congested,i-DE,300,0.1842,,rest_area
-IBE_178,42.851679,-7.145572,N-6,2,Congested,i-DE,300,0.1834,Área de Descanso da Venda de Cruzul,rest_area
-IBE_179,42.976479,-5.006875,N-621,2,Congested,i-DE,300,0.1701,Moeve,petrol_station
-IBE_180,43.007139,-4.12875,N-611,2,Congested,Viesgo,300,0.1672,Parte,petrol_station
-IBE_181,42.581681,-6.726263,A-6,2,Congested,i-DE,300,0.1638,,supermarket
-IBE_182,41.278647,-4.67865,N-601,2,Congested,i-DE,300,0.161,Anden,hotel
-IBE_183,41.80332,-0.438411,A-129,2,Congested,Endesa,300,0.1606,Moeve,petrol_station
-IBE_184,37.142978,-1.959048,N-340A,2,Congested,Endesa,300,0.1556,HPB El Pueblito de Alfaix,hotel
-IBE_185,39.105762,-1.051256,N-330,2,Congested,i-DE,300,0.1464,Lauriano,supermarket
-IBE_186,40.241209,-1.217928,N-330,2,Congested,Endesa,300,0.1412,Erosion del Terreno,attraction
-IBE_187,38.027481,-3.26521,N-322,2,Congested,Endesa,300,0.1398,Estación de Torreperogil,train_station
-IBE_188,36.992772,-6.536678,A-483,2,Congested,Endesa,300,0.1287,Dia,supermarket
-IBE_189,42.274214,0.802037,N-230,2,Congested,Endesa,300,0.1129,Sant Martí,attraction
-IBE_190,41.986902,-3.228881,N-234,2,Congested,i-DE,300,0.1036,Necrópolis Santiuste,attraction
+IBE_004,37.372725,-5.921735,A-8028,8,Sufficient,Endesa,1200,0.5238,,motorway_services
+IBE_005,37.717639,-1.415639,A-7,8,Sufficient,i-DE,1200,0.5209,Repsol,petrol_station
+IBE_006,38.39051,-0.505658,A-70,9,Sufficient,i-DE,1350,0.5144,Estación de Servicio Sol y Luz,petrol_station
+IBE_007,41.988212,2.308089,N-152Z,5,Sufficient,Endesa,750,0.469,Esclatoil,petrol_station
+IBE_008,41.105417,1.197528,N-340,5,Sufficient,Viesgo,750,0.4609,Shell,petrol_station
+IBE_009,43.487833,-6.110667,A-8,6,Sufficient,Viesgo,900,0.4589,Galp,petrol_station
+IBE_010,37.94053,-4.681002,N-4A,4,Sufficient,Endesa,600,0.4565,,motorway_services
+IBE_011,43.215701,-7.309026,N-640,3,Sufficient,Viesgo,450,0.4455,Estación de Servizo Granxeiro,petrol_station
+IBE_012,42.116596,-1.738241,AP-68,6,Sufficient,i-DE,900,0.4321,,motorway_services
+IBE_013,41.638161,-4.746725,N-601,4,Sufficient,i-DE,600,0.4229,Estación de Servicio La Esmeralda,petrol_station
+IBE_014,36.456317,-6.218776,A-4,2,Congested,Endesa,300,0.4193,Moeve,petrol_station
+IBE_015,38.517702,-1.161273,A-33,6,Sufficient,i-DE,900,0.4146,,hotel
+IBE_016,37.264851,-6.838579,A-49,2,Congested,Endesa,300,0.4139,Repsol,petrol_station
+IBE_017,42.513788,2.853668,AP-7N,2,Congested,Endesa,300,0.4085,Le Relais des Chartreuses,hotel
+IBE_018,37.839278,-0.789674,N-332A,5,Sufficient,i-DE,750,0.4048,€xpress,petrol_station
+IBE_019,41.546368,-5.707888,A-66,5,Sufficient,i-DE,750,0.3983,,motorway_services
+IBE_020,43.384392,-8.394669,AP-9,2,Congested,i-DE,300,0.3974,Eurostars Ciudad de A Coruña,hotel
+IBE_021,42.39381,-7.190229,N-120,3,Sufficient,i-DE,450,0.395,,rest_area
+IBE_022,39.934639,-0.192028,AP-7N,2,Congested,i-DE,300,0.3892,Cooperativa Agrícola Valenciana de Betín a,petrol_station
+IBE_023,36.659067,-4.570736,A-7,2,Congested,Endesa,300,0.3874,BP Alhaurín de la Torre,petrol_station
+IBE_024,40.120378,-3.153092,A-3,2,Congested,i-DE,300,0.3869,,motorway_services
+IBE_025,40.082889,-5.879972,N-110,3,Sufficient,i-DE,450,0.3845,SCL NTRA.SRA.VISO,petrol_station
+IBE_026,39.602865,-2.676942,N-420,2,Sufficient,Endesa,300,0.3825,Área de descanso Ruta de Don Quijote,rest_area
+IBE_027,42.293596,-8.551968,N-550,6,Sufficient,i-DE,900,0.3805,Estación de Servicio A Chan de Amoedo,petrol_station
+IBE_028,40.011602,-2.107443,N-320,3,Sufficient,Endesa,450,0.3545,Repsol,petrol_station
+IBE_029,42.317634,1.387999,N-260,2,Congested,Endesa,300,0.3422,Mapisaoil,petrol_station
+IBE_030,38.839549,0.098094,N-332,2,Congested,i-DE,300,0.3363,Repsol,petrol_station
+IBE_031,43.190657,-2.895993,AP-68,2,Congested,i-DE,300,0.3353,Área de Servicio Janbide,motorway_services
+IBE_032,40.683278,0.46525,AP-7N,2,Congested,Endesa,300,0.3319,COOP. LA GALERA,petrol_station
+IBE_033,38.808202,-2.327666,N-322,2,Congested,i-DE,300,0.3318,Repsol,petrol_station
+IBE_034,41.034582,-3.617273,M-132,2,Congested,i-DE,300,0.3281,,motorway_services
+IBE_035,41.674844,-2.162067,N-234,3,Sufficient,Endesa,450,0.3264,Repsol,petrol_station
+IBE_036,43.177329,-2.05518,A-1,2,Congested,i-DE,300,0.3228,Repsol,petrol_station
+IBE_037,43.719975,-7.472783,N-642,3,Sufficient,Viesgo,450,0.3192,Dolos de Morás,attraction
+IBE_038,36.189892,-5.431268,A-7,2,Congested,Endesa,300,0.3157,Estación de Servicio Nieves,motorway_services
+IBE_039,40.300736,-4.444064,M-501,2,Congested,i-DE,300,0.3142,,motorway_services
+IBE_040,36.81483,-2.227423,A-7,2,Congested,Endesa,300,0.3128,Supremo,supermarket
+IBE_041,42.793444,-8.646194,N-550,6,Moderate,i-DE,900,0.31,Ballenoil,petrol_station
+IBE_042,42.448134,-2.499941,AP-68,6,Sufficient,i-DE,900,0.3081,,rest_area
+IBE_043,42.661268,0.209481,A-138,2,Congested,Endesa,300,0.3056,Repsol,petrol_station
+IBE_044,41.969177,-6.378536,A-52,6,Moderate,i-DE,900,0.3056,Super Carmen,supermarket
+IBE_045,41.620448,1.50874,N-2A,2,Congested,Endesa,300,0.3052,Àrea de Servei de Jorba,motorway_services
+IBE_046,37.192723,-3.85299,A-92,2,Congested,Endesa,300,0.3045,Área de Servicio El Olivar,motorway_services
+IBE_047,40.975699,-2.130829,N-211,2,Congested,i-DE,300,0.3028,,rest_area
+IBE_048,41.599222,0.597861,N-240,2,Congested,Endesa,300,0.3027,Estació de Servei Nieves Lleida,petrol_station
+IBE_049,39.572934,-3.51645,A-4,6,Sufficient,Endesa,900,0.3009,Repsol,petrol_station
+IBE_050,42.748472,-1.641573,N-121,2,Congested,i-DE,300,0.3003,,motorway_services
+IBE_051,39.654111,-4.983972,N-502,2,Congested,i-DE,300,0.2949,Petronor,petrol_station
+IBE_052,37.680052,-2.092862,A-92N,2,Congested,Endesa,300,0.2923,,rest_area
+IBE_053,41.518103,-0.097324,AP-2,2,Congested,Endesa,300,0.2813,,rest_area
+IBE_054,42.722178,-3.801541,N-623,2,Congested,i-DE,300,0.2774,,rest_area
+IBE_055,37.968273,-6.306574,A-66,2,Congested,Endesa,300,0.2753,Estación de Servicio Hermanos Nieto Arteaga,petrol_station
+IBE_056,40.821954,-4.509036,AP-6,2,Congested,i-DE,300,0.2721,,rest_area
+IBE_057,41.660624,-0.925315,N-232,2,Congested,Endesa,300,0.2713,Estación de Servicio El Portazgo,motorway_services
+IBE_058,40.859515,-2.83577,A-2,2,Congested,i-DE,300,0.2706,,motorway_services
+IBE_059,37.227207,-5.319643,A-92,2,Congested,Endesa,300,0.27,Estación de Servicio Repsol José Sancho Castaño,petrol_station
+IBE_060,39.450894,-6.502413,N-521,2,Congested,i-DE,300,0.2675,Galp Malpa,petrol_station
+IBE_061,39.085942,-5.891292,N-430,2,Congested,i-DE,300,0.2673,Estación de Servicio Juan Eladio Pulido Redondo,petrol_station
+IBE_062,43.365861,-5.271472,N-634,4,Moderate,Viesgo,600,0.2672,Repsol,petrol_station
+IBE_063,41.685395,-2.826857,N-122,2,Congested,i-DE,300,0.267,,rest_area
+IBE_064,41.02833,-0.806565,A-222,2,Congested,Endesa,300,0.2667,,motorway_services
+IBE_065,36.811273,-2.863412,N-340A,2,Congested,Endesa,300,0.2658,Truck Stop Dalias,petrol_station
+IBE_066,40.524281,-0.405151,A-227,2,Congested,i-DE,300,0.2636,Petronor,petrol_station
+IBE_067,39.858138,-4.050649,N-403,2,Congested,i-DE,300,0.2615,,rest_area
+IBE_068,40.564316,-1.285444,N-234,2,Congested,Endesa,300,0.2596,Repsol,petrol_station
+IBE_069,43.451361,-3.943419,A-67,6,Moderate,Viesgo,900,0.2594,,rest_area
+IBE_070,38.786671,-4.821154,N-502,2,Congested,i-DE,300,0.2592,HG Oil,petrol_station
+IBE_071,42.929012,-5.857108,AP-66,2,Congested,Viesgo,300,0.259,Caldas de Luna,motorway_services
+IBE_072,37.96298,-7.239013,N-433,2,Congested,Endesa,300,0.2585,Estación de Servicio Galp Rosal de la Frontera,petrol_station
+IBE_073,42.360747,-0.381314,A-23,2,Congested,Endesa,300,0.2564,,rest_area
+IBE_074,38.51249,-6.450616,N-432,2,Congested,Endesa,300,0.2545,Estación de Servicio Repsol Los Llanos,petrol_station
+IBE_075,40.849981,-6.050453,A-62,2,Congested,i-DE,300,0.2541,,motorway_services
+IBE_076,37.678002,-3.626248,N-323A,2,Congested,Endesa,300,0.2539,Área de Servicio El Oasis 2,motorway_services
+IBE_077,39.530608,-1.165531,A-3,2,Congested,i-DE,300,0.2522,,motorway_services
+IBE_078,39.17907,-1.788246,N-322,2,Congested,i-DE,300,0.2505,SAT MOTILLEJA,petrol_station
+IBE_079,42.235,-5.665556,A-66,2,Congested,i-DE,300,0.2478,Repsol,petrol_station
+IBE_080,42.132218,-3.71687,A-1,2,Congested,i-DE,300,0.2453,Moeve,petrol_station
+IBE_081,37.429945,-2.908223,A-92N,2,Congested,Endesa,300,0.2392,,motorway_services
+IBE_082,42.621508,-7.787353,N-540,3,Sufficient,i-DE,450,0.239,Icos Oil,petrol_station
+IBE_083,38.426271,-4.304437,N-420,2,Congested,i-DE,300,0.2354,,rest_area
+IBE_084,37.456149,-4.402267,A-318,2,Congested,Endesa,300,0.2354,Fuel Energy,petrol_station
+IBE_085,42.615908,-6.59007,A-6,2,Congested,i-DE,300,0.2335,Repsol,petrol_station
+IBE_086,38.177681,-3.69979,A-4,2,Congested,Endesa,300,0.2322,Jaima Park,motorway_services
+IBE_087,37.18667,-7.45369,N-447,2,Congested,Endesa,300,0.2256,Repsol,petrol_station
+IBE_088,38.990174,-4.093668,N-430,2,Congested,i-DE,300,0.2255,Moeve,petrol_station
+IBE_089,39.127246,-3.108983,N-310,2,Congested,i-DE,300,0.2249,Estación de Servicio Repsol,petrol_station
+IBE_090,42.62337,-5.21067,N-625,2,Congested,i-DE,300,0.224,Estación de Servicio Sahechores de Rueda,petrol_station
+IBE_091,36.7239,-3.526269,N-323,2,Congested,Endesa,300,0.2239,Boat Fuel Station,petrol_station
+IBE_092,42.135511,0.685124,N-230,2,Congested,Endesa,300,0.223,,rest_area
+IBE_093,38.243018,-5.501539,N-432A,2,Congested,Endesa,300,0.2181,Area descanso Fuente de la Santanilla,rest_area
+IBE_094,38.858442,-6.947496,N-432,2,Congested,Endesa,300,0.2174,Ocho,petrol_station
+IBE_095,38.316751,-2.902082,N-322,2,Congested,Endesa,300,0.2173,Repsol,petrol_station
+IBE_096,40.963728,-0.091874,N-232,2,Congested,Endesa,300,0.2163,COOPERATIVA DEL CAMPO SAN ANTONIO ABAD,petrol_station
+IBE_097,41.409643,-1.52518,N-2,2,Congested,Endesa,300,0.213,,rest_area
+IBE_098,41.879161,-7.488208,N-532,2,Congested,i-DE,300,0.208,,rest_area
+IBE_099,42.756548,-0.831037,A-176,2,Congested,Endesa,300,0.198,,rest_area
+IBE_100,41.593566,-3.697575,A-1,2,Congested,i-DE,300,0.1978,Área de Servicio Milagros,motorway_services
+IBE_101,39.346318,-7.298325,N-521,2,Congested,i-DE,300,0.1952,,motorway_services
+IBE_102,42.437225,-4.394368,A-67,2,Congested,Viesgo,300,0.1948,,rest_area
+IBE_103,40.210975,-5.093414,N-502,2,Congested,i-DE,300,0.1936,,department_store
+IBE_104,40.928639,-5.345222,N-501,2,Congested,i-DE,300,0.1929,Moeve,petrol_station
+IBE_105,37.221853,-1.83537,N-340A,2,Congested,Endesa,300,0.1924,Estación de Servicio Las Cinco Piezas,petrol_station
+IBE_106,38.675055,-3.446138,A-4,2,Congested,i-DE,300,0.1903,Área de descanso de Valdepeñas,motorway_services
+IBE_107,43.252263,-4.606908,N-621,2,Moderate,Viesgo,300,0.1858,Hotel Balneario La Hermida,hotel
+IBE_108,40.590783,-6.707452,A-62,2,Congested,i-DE,300,0.178,Moeve,petrol_station
+IBE_109,42.47277,2.054298,N-154,2,Congested,Endesa,300,0.1739,,rest_area
+IBE_110,40.063197,-1.28515,N-330A,2,Congested,i-DE,300,0.1576,Repsol,petrol_station
+IBE_111,43.156951,-1.260162,N-135,2,Congested,i-DE,300,0.1108,Auberge Etchoinia,hotel
+IBE_112,42.642129,-3.1215,N-1,2,Congested,i-DE,300,0.1063,Fuerte de Santa Engracia,attraction

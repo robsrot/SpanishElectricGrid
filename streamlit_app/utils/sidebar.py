@@ -81,6 +81,7 @@ def render_sidebar() -> None:
         st.page_link("pages/1_Charging_Network.py",   label="Charging Network (Obj. 1)", icon="🗺️")
         st.page_link("pages/2_Grid_Viability.py",     label="Grid Viability (Obj. 2)",   icon="⚡")
         st.page_link("pages/3_Strategic_Markets.py",  label="Strategic Markets (Obj. 3)",icon="📈")
+        st.page_link("pages/4_Interactive_Maps.py",    label="Interactive Maps",           icon="🌍")
         st.markdown("---")
         st.markdown(
             '<span style="font-size:0.75rem;color:#64748B;">'

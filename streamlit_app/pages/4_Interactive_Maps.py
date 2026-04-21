@@ -1,0 +1,201 @@
+import http.server
+import socketserver
+import sys
+import threading
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+import streamlit as st
+import streamlit.components.v1 as components
+
+from utils.sidebar import render_sidebar
+
+st.set_page_config(
+    page_title="Interactive Maps | Spain EV 2027",
+    page_icon="🌍",
+    layout="wide",
+)
+
+render_sidebar()
+
+OUTPUTS_DIR = Path(__file__).parent.parent.parent / "notebooks" / "outputs"
+MAP_SERVER_PORT = 8600
+
+MAPS = {
+    "map1": {
+        "label": "Map 1 — Proposed Stations",
+        "file": "map1.html",
+        "description": (
+            "Proposed interurban HPC stations (File 2), "
+            "scored and filtered at 40 km AFIR spacing."
+        ),
+        "icon": "🗺️",
+        "default": False,
+    },
+    "map2": {
+        "label": "Map 2 — Grid Friction Points",
+        "file": "map2.html",
+        "description": (
+            "Friction points (File 3) — locations where projected "
+            "EV demand exceeds grid hosting capacity."
+        ),
+        "icon": "⚡",
+        "default": False,
+    },
+    "map3": {
+        "label": "Map 3 — Strategic Markets",
+        "file": "map3.html",
+        "description": (
+            "Emerging province opportunity map — "
+            "growth rate vs. fleet size quadrant view."
+        ),
+        "icon": "📈",
+        "default": False,
+    },
+    "map4": {
+        "label": "Map 4 — Points of Interest",
+        "file": "map4_pois.html",
+        "description": (
+            "Service areas, rest stops, and candidate POI sites "
+            "along interurban corridors."
+        ),
+        "icon": "📍",
+        "default": False,
+    },
+    "bi_map": {
+        "label": "BI Map — Full Network Overview",
+        "file": "bi_map_optimized.html",
+        "description": (
+            "All layers: proposed stations, traffic intensity, "
+            "existing chargers, grid capacity nodes."
+        ),
+        "icon": "🔍",
+        "default": True,
+    },
+}
+
+
+@st.cache_resource
+def _start_map_server() -> int:
+    """Start a one-shot HTTP file server for the outputs directory.
+    Runs in a daemon thread — lives for the Streamlit process lifetime."""
+    directory = str(OUTPUTS_DIR)
+
+    class _Handler(http.server.SimpleHTTPRequestHandler):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, directory=directory, **kwargs)
+
+        def log_message(self, fmt, *args):  # silence request logs
+            pass
+
+    server = socketserver.TCPServer(
+        ("127.0.0.1", MAP_SERVER_PORT), _Handler
+    )
+    thread = threading.Thread(target=server.serve_forever, daemon=True)
+    thread.start()
+    return MAP_SERVER_PORT
+
+
+# Start server once; returns cached port on subsequent calls
+try:
+    _port = _start_map_server()
+    _server_ok = True
+except OSError:
+    # Port already in use — server running from a previous hot-reload
+    _port = MAP_SERVER_PORT
+    _server_ok = True
+
+
+# ── Header ────────────────────────────────────────────────────────────────────
+st.markdown("## 🌍 Interactive Maps — Full Layer Explorer")
+st.markdown(
+    '<span style="font-size:0.8rem;color:#94A3B8;">'
+    "Maps are served via a local file server — no size limit, "
+    "correct MIME types, browser-cached between toggles."
+    "</span>",
+    unsafe_allow_html=True,
+)
+
+st.info(
+    "**For the best experience, view one map at a time.** "
+    "Multiple maps loaded simultaneously may slow down your browser.",
+    icon="💡",
+)
+st.warning(
+    "**BI Map — please be patient.** "
+    "This map was heavily optimised to be as smooth as possible — "
+    "6,896 existing chargers have been consolidated into a single "
+    "rendering layer and all data has been sanitised. "
+    "The more additional layers you enable on top, "
+    "the longer it may take. Once loaded, panning and zooming "
+    "will be fluid.",
+    icon="⚡",
+)
+st.markdown("---")
+
+# ── Layer toggles ─────────────────────────────────────────────────────────────
+st.markdown(
+    '<p style="color:#00B140;font-size:1.1rem;font-weight:600;'
+    'margin-bottom:4px;">Layer Controls</p>',
+    unsafe_allow_html=True,
+)
+
+cols = st.columns(len(MAPS))
+toggles = {}
+for col, (key, meta) in zip(cols, MAPS.items()):
+    with col:
+        available = (OUTPUTS_DIR / meta["file"]).exists()
+        short_label = meta["label"].split("—")[0].strip()
+        size_mb = (
+            round((OUTPUTS_DIR / meta["file"]).stat().st_size / 1e6)
+            if available
+            else 0
+        )
+        help_text = (
+            f"{meta['description']} ({size_mb} MB)"
+            if available
+            else "File not found — re-run the notebook."
+        )
+        toggles[key] = st.toggle(
+            f"{meta['icon']} {short_label}",
+            value=meta["default"] and available,
+            disabled=not available,
+            help=help_text,
+        )
+
+st.markdown("---")
+
+# ── Render active maps ────────────────────────────────────────────────────────
+active = [key for key, on in toggles.items() if on]
+
+if not active:
+    st.info("No maps selected — toggle at least one layer above.")
+else:
+    for key in active:
+        meta = MAPS[key]
+        src = OUTPUTS_DIR / meta["file"]
+        size_mb = round(src.stat().st_size / 1e6)
+        map_url = f"http://localhost:{_port}/{meta['file']}"
+
+        st.markdown(
+            f'<p style="color:#00B140;font-size:1.05rem;font-weight:600;'
+            f'margin-bottom:2px;">{meta["icon"]} {meta["label"]}</p>',
+            unsafe_allow_html=True,
+        )
+        st.markdown(
+            f'<span style="font-size:0.8rem;color:#94A3B8;">'
+            f'{meta["description"]}</span>',
+            unsafe_allow_html=True,
+        )
+
+        if size_mb >= 50:
+            st.warning(
+                "This map contains many layers — the initial load "
+                "may take a moment. Please be patient, it will be "
+                "worth it.",
+                icon="⏳",
+            )
+        components.iframe(map_url, height=560, scrolling=False)
+
+        st.markdown("<br>", unsafe_allow_html=True)

@@ -215,3 +215,8 @@ mobility_electric_routes/Codigo/Data/csv/
 
 # Large generated outputs
 notebooks/outputs/
+
+# Large HTML map files
+streamlit_app/static/maps/BI_map.html
+notebooks/outputs/BI_map.html
+notebooks/outputs/bi_map_optimized.html
