@@ -20,7 +20,27 @@ st.set_page_config(
 render_sidebar()
 
 st.markdown("## ⚡ Grid Viability Analysis — Objective 2")
-st.caption("Friction points: locations where EV charging demand exceeds local grid hosting capacity")
+st.markdown(
+    '<span style="font-size:0.8rem;color:#94A3B8;">'
+    'Friction points: locations where <span class="abbr-tooltip" data-tooltip="Electric Vehicle">EV</span> charging demand '
+    'exceeds local grid hosting capacity'
+    '</span>',
+    unsafe_allow_html=True,
+)
+st.markdown(
+    '> **What this page answers:** Not every corridor location can host a charger today. '
+    'This page identifies *friction points* — nodes where the projected '
+    '<span class="abbr-tooltip" data-tooltip="Electric Vehicle">EV</span> charging load exceeds the available grid hosting capacity '
+    'of the nearest distributor substation. '
+    '**Congested** locations (<1 <span class="abbr-tooltip" data-tooltip="Megawatt — 1,000 kilowatts of electrical power capacity">MW</span> available) '
+    'require Iberdrola to pre-negotiate grid reinforcement with '
+    '<span class="abbr-tooltip" data-tooltip="Iberdrola Distribución Eléctrica — Iberdrola\'s regulated grid subsidiary">i-DE</span>, '
+    'Endesa, or Viesgo before any construction begins — typically a 12–18 month lead time. '
+    '**Moderate** locations (1–5 MW) can support a smaller initial station while reinforcement is underway. '
+    'Understanding this map is essential: deploying chargers without grid clearance leads to regulatory delays and stranded '
+    '<span class="abbr-tooltip" data-tooltip="Capital Expenditure — upfront investment in physical infrastructure">capex</span>.',
+    unsafe_allow_html=True,
+)
 
 df3 = load_file3()
 df2 = load_file2()

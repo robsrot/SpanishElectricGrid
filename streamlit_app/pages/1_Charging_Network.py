@@ -4,7 +4,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import numpy as np
-import pandas as pd
+
 import pydeck as pdk
 import streamlit as st
 
@@ -26,7 +26,31 @@ st.set_page_config(
 render_sidebar()
 
 st.markdown("## 🗺️ Charging Network Optimization — Objective 1")
-st.caption("Proposed HPC charging stations on TEN-T interurban corridors · AFIR 2023/1804 compliant")
+st.markdown(
+    '<span style="font-size:0.8rem;color:#94A3B8;">'
+    'Proposed <span class="abbr-tooltip" data-tooltip="High Power Charging — DC fast charging ≥150 kW, enabling a meaningful charge in 20–30 min">HPC</span> '
+    'charging stations on <span class="abbr-tooltip" data-tooltip="Trans-European Transport Network — the EU\'s strategic interurban road corridors">TEN-T</span> '
+    'corridors · '
+    '<span class="abbr-tooltip" data-tooltip="Alternative Fuels Infrastructure Regulation (EU 2023/1804) — mandates HPC every ≤60 km on TEN-T Core corridors">AFIR</span> '
+    '2023/1804 compliant'
+    '</span>',
+    unsafe_allow_html=True,
+)
+st.markdown(
+    '> **What this page answers:** Where should Iberdrola build new '
+    '<span class="abbr-tooltip" data-tooltip="High Power Charging — DC fast charging ≥150 kW">HPC</span> stations? '
+    'Each dot represents a proposed 150 kW charging station placed at ≤60 km intervals along Spain\'s 12 '
+    '<span class="abbr-tooltip" data-tooltip="Trans-European Transport Network — the EU\'s strategic interurban road corridors">TEN-T</span> corridors '
+    '(<span class="abbr-tooltip" data-tooltip="Alternative Fuels Infrastructure Regulation (EU 2023/1804) — mandates HPC every ≤60 km on TEN-T Core corridors">AFIR</span> '
+    'Regulation 2023/1804). '
+    'Colour indicates how much grid capacity is available at that location today — '
+    'green stations can be deployed immediately; yellow and red require grid reinforcement coordination with '
+    '<span class="abbr-tooltip" data-tooltip="Iberdrola Distribución Eléctrica — Iberdrola\'s regulated grid subsidiary">i-DE</span>, '
+    'Endesa, or Viesgo before construction begins. '
+    'Arc lines connect each constrained station to its nearest existing grid friction point, '
+    'making the reinforcement workload spatially explicit.',
+    unsafe_allow_html=True,
+)
 
 # ── Sidebar filters ───────────────────────────────────────────────────────────
 df2 = load_file2()
@@ -34,8 +58,6 @@ df3 = load_file3()
 
 with st.sidebar:
     st.markdown("**Filters**")
-    all_corridors = sorted(CORRIDORS.keys())
-    sel_corridors = st.multiselect("Corridor", all_corridors, default=all_corridors)
     sel_status = st.multiselect(
         "Grid Status",
         ["Sufficient", "Moderate", "Congested"],
@@ -53,13 +75,13 @@ with st.sidebar:
     st.caption("Green ≥5 MW · Yellow 1–5 MW · Red <1 MW")
 
 # ── Filter data ───────────────────────────────────────────────────────────────
-mask = df2["route_segment"].isin(sel_corridors) & df2["grid_status"].isin(sel_status)
+mask = df2["grid_status"].isin(sel_status)
 df2_f = df2[mask].copy()
 
 df2_f["color"] = df2_f["grid_status"].map(GRID_COLORS)
 df2_f["radius"] = (df2_f["n_chargers_proposed"] * 4000).clip(8000, 28000)
 
-df3_f = df3[df3["route_segment"].isin(sel_corridors)].copy()
+df3_f = df3.copy()
 df3_f["color"] = df3_f["grid_status"].map(GRID_COLORS)
 df3_f["radius"] = 6000
 
@@ -68,7 +90,7 @@ layers = []
 
 if show_corridors:
     for name, path in CORRIDORS.items():
-        if name in sel_corridors or not sel_corridors:
+        if True:
             color = CORRIDOR_COLORS.get(name, [180, 180, 180])
             layers.append(
                 pdk.Layer(
@@ -138,8 +160,8 @@ if not df2_f.empty and not df3_f.empty:
                 data=arcs,
                 get_source_position="source",
                 get_target_position="target",
-                get_source_color=[239, 68, 68, 120],
-                get_target_color=[234, 179, 8, 120],
+                get_source_color=[0, 169, 206, 140],
+                get_target_color=[245, 166, 35, 140],
                 get_width=2,
                 width_min_pixels=1,
                 pickable=False,
@@ -183,6 +205,20 @@ st.info(
     "substation (i-DE, Endesa, or Viesgo) using KD-tree spatial matching in EPSG:25830.",
     icon="📋",
 )
+
+# ── Station sizing methodology ────────────────────────────────────────────────
+st.markdown("---")
+st.markdown('<p class="section-header">Station Sizing Methodology</p>', unsafe_allow_html=True)
+st.markdown(
+    "The number of chargers per station is not fixed — it is derived from a demand model that chains "
+    "four factors: the share of interurban trips that pass each corridor node, the probability a driver "
+    "needs a charge, the target utilisation rate, and the 150 kW per charger standard mandated by the datathon rules."
+)
+mc1, mc2, mc3, mc4 = st.columns(4)
+mc1.metric("Interurban trip rate", "3%", help="Share of all corridor vehicle-km performed by EVs needing a charge stop")
+mc2.metric("Charging probability", "45%", help="Fraction of passing EVs that will need to charge at a given station")
+mc3.metric("Utilisation target", "75%", help="Peak-hour charger occupancy target — above this, queues form")
+mc4.metric("Charger power", "150 kW", help="Fixed per datathon Rule 2 — equivalent to ~30 min charge for a 200 km range BEV")
 
 # ── Summary metrics ───────────────────────────────────────────────────────────
 col1, col2, col3, col4 = st.columns(4)

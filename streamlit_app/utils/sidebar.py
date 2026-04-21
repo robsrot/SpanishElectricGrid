@@ -4,6 +4,37 @@ SHARED_CSS = """
 <style>
 [data-testid="stSidebarNav"] { display: none; }
 
+.abbr-tooltip {
+    border-bottom: 1px dotted #94A3B8;
+    cursor: help;
+    position: relative;
+    display: inline-block;
+}
+.abbr-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1E293B;
+    color: #F1F5F9;
+    padding: 7px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    white-space: normal;
+    width: 230px;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s;
+    z-index: 9999;
+    border: 1px solid #334155;
+    line-height: 1.4;
+}
+.abbr-tooltip:hover::after {
+    opacity: 1;
+}
+
 .kpi-card {
     background: #1E293B;
     border-radius: 12px;
@@ -27,9 +58,9 @@ SHARED_CSS = """
     margin-bottom: 10px;
     border-left: 4px solid;
 }
-.phase-1 { border-color: #3B82F6; }
-.phase-2 { border-color: #F59E0B; }
-.phase-3 { border-color: #10B981; }
+.phase-1 { border-color: #00A9CE; }
+.phase-2 { border-color: #F5A623; }
+.phase-3 { border-color: #7DC855; }
 .phase-title { font-weight: 700; font-size: 0.95rem; color: #F1F5F9; }
 .phase-body  { font-size: 0.85rem; color: #94A3B8; margin-top: 6px; }
 </style>
@@ -51,5 +82,18 @@ def render_sidebar() -> None:
         st.page_link("pages/2_Grid_Viability.py",     label="Grid Viability (Obj. 2)",   icon="⚡")
         st.page_link("pages/3_Strategic_Markets.py",  label="Strategic Markets (Obj. 3)",icon="📈")
         st.markdown("---")
-        st.caption("Model: SARIMA(1,1,1)×(1,0,1,12)")
-        st.caption("Source: datos.gob.es · DGT · i-DE · Endesa · Viesgo")
+        st.markdown(
+            '<span style="font-size:0.75rem;color:#64748B;">'
+            'Model: <span class="abbr-tooltip" data-tooltip="Seasonal AutoRegressive Integrated Moving Average — statistical time series forecasting model">SARIMA</span>(1,1,1)×(1,0,1,12)'
+            '</span>',
+            unsafe_allow_html=True,
+        )
+        st.markdown(
+            '<span style="font-size:0.75rem;color:#64748B;">'
+            'Source: datos.gob.es · '
+            '<span class="abbr-tooltip" data-tooltip="Dirección General de Tráfico — Spain\'s traffic authority and charger registry">DGT</span> · '
+            '<span class="abbr-tooltip" data-tooltip="Iberdrola Distribución Eléctrica — Iberdrola\'s regulated grid subsidiary">i-DE</span> · '
+            'Endesa · Viesgo'
+            '</span>',
+            unsafe_allow_html=True,
+        )

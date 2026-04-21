@@ -9,7 +9,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 
-from utils.data_loader import load_emerging, load_provinces_geojson_str
+from utils.data_loader import load_emerging, load_ev_type_mix, load_provinces_geojson_str
 from utils.sidebar import render_sidebar
 
 st.set_page_config(
@@ -21,21 +21,45 @@ st.set_page_config(
 render_sidebar()
 
 st.markdown("## 📈 Strategic Market Analysis — Objective 3")
-st.caption("Province-level EV growth analysis · Opportunity scoring · Iberdrola deployment strategy")
+st.markdown(
+    '<span style="font-size:0.8rem;color:#94A3B8;">'
+    'Province-level <span class="abbr-tooltip" data-tooltip="Electric Vehicle">EV</span> growth analysis · '
+    'Opportunity scoring · Iberdrola deployment strategy'
+    '</span>',
+    unsafe_allow_html=True,
+)
+st.markdown(
+    '> **What this page answers:** Which markets should Iberdrola enter — and in what order? '
+    "Spain's 52 provinces grow at very different speeds. Some are large but saturating (Leaders); "
+    'others are small but accelerating fastest (Emerging). '
+    'The opportunity score combines '
+    '<span class="abbr-tooltip" data-tooltip="Compound Annual Growth Rate — the year-over-year growth rate of EV registrations from 2021 to 2023">CAGR</span> '
+    '(40%), projected fleet size (35%), and infrastructure gap (25%) to rank provinces by strategic value. '
+    "Iberdrola's unique advantage in Emerging markets is that its grid subsidiary "
+    '<span class="abbr-tooltip" data-tooltip="Iberdrola Distribución Eléctrica — Iberdrola\'s regulated grid subsidiary">i-DE</span> '
+    'already operates the distribution network along the A-66 corridor — '
+    'enabling faster permitting and grid connection than any competitor.',
+    unsafe_allow_html=True,
+)
 
 df_em = load_emerging()
 geojson_str = load_provinces_geojson_str()
 
 QUADRANT_COLORS = {
-    "Leader":   "#3B82F6",
-    "Mature":   "#10B981",
-    "Emerging": "#F59E0B",
+    "Leader":   "#00A9CE",
+    "Mature":   "#7DC855",
+    "Emerging": "#F5A623",
     "Lagging":  "#64748B",
 }
 
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.markdown("**Map Colour Variable**")
+    st.markdown(
+    '**Map Colour Variable** — '
+    '<span class="abbr-tooltip" data-tooltip="Compound Annual Growth Rate — year-over-year EV registration growth 2021–2023">CAGR</span> '
+    'measures growth speed; Opportunity Score combines CAGR + fleet size + infrastructure gap',
+    unsafe_allow_html=True,
+)
     color_var = st.radio(
         "",
         ["opportunity_score", "cagr_pct", "ev_fleet_2027"],
@@ -70,7 +94,7 @@ fig_choro = px.choropleth_mapbox(
     locations="province_code",
     featureidkey="properties.cod_prov",
     color=color_var,
-    color_continuous_scale="YlOrRd",
+    color_continuous_scale=[[0, "#0A2E1A"], [0.5, "#006B2B"], [1.0, "#00B140"]],
     mapbox_style="carto-darkmatter",
     zoom=4.8,
     center={"lat": 40.2, "lon": -3.5},
@@ -157,6 +181,84 @@ st.plotly_chart(fig_scatter, use_container_width=True)
 
 st.markdown("---")
 
+# ── CAGR by Community + Operator Landscape ────────────────────────────────────
+col_cagr, col_ops = st.columns(2)
+
+with col_cagr:
+    st.markdown('<p class="section-header">EV Growth Rate by Autonomous Community</p>', unsafe_allow_html=True)
+    st.markdown(
+        '<span style="font-size:0.8rem;color:#94A3B8;">'
+        'Aggregated average <span class="abbr-tooltip" data-tooltip="Compound Annual Growth Rate — year-over-year EV registration growth 2021–2023">CAGR</span> '
+        'per region reveals where structural <span class="abbr-tooltip" data-tooltip="Electric Vehicle">EV</span> adoption is happening fastest. '
+        'Extremadura and Castilla-La Mancha lead — both crossed by the A-66 corridor where Iberdrola controls the grid.'
+        '</span>',
+        unsafe_allow_html=True,
+    )
+    community_cagr = (
+        df_em.groupby("auto_community")["cagr_pct"]
+        .mean()
+        .reset_index()
+        .sort_values("cagr_pct")
+    )
+    fig_comm = px.bar(
+        community_cagr,
+        x="cagr_pct", y="auto_community",
+        orientation="h",
+        color="cagr_pct",
+        color_continuous_scale=["#0A2E1A", "#00B140"],
+        text=community_cagr["cagr_pct"].map(lambda v: f"{v:.1f}%"),
+        template="plotly_dark",
+        labels={"cagr_pct": "Avg CAGR (%)", "auto_community": "Region"},
+    )
+    fig_comm.update_traces(textposition="outside", textfont=dict(color="#94A3B8", size=10))
+    fig_comm.update_layout(
+        paper_bgcolor="#0F172A", plot_bgcolor="#0F172A",
+        height=400, margin=dict(t=10, b=10, l=0, r=40),
+        coloraxis_showscale=False,
+        xaxis=dict(gridcolor="#1E293B"),
+        yaxis=dict(gridcolor="#1E293B"),
+    )
+    st.plotly_chart(fig_comm, use_container_width=True)
+
+with col_ops:
+    st.markdown('<p class="section-header">Operator Competitive Landscape</p>', unsafe_allow_html=True)
+    st.markdown(
+        '<span style="font-size:0.8rem;color:#94A3B8;">'
+        'Iberdrola Clientes leads Spain\'s public charging market with 10,694 connectors — '
+        'but Repsol Soluciones (6,354) is growing aggressively. The window for first-mover advantage '
+        'in Emerging provinces is narrowing. Deploying on the A-66 before 2026 locks in Iberdrola\'s corridor dominance. '
+        'Source: <span class="abbr-tooltip" data-tooltip="Dirección General de Tráfico — Spain\'s traffic authority, operator of the national charger registry">DGT</span> '
+        'DATEX II registry.'
+        '</span>',
+        unsafe_allow_html=True,
+    )
+    ops_data = {
+        "Operator": ["Iberdrola\nClientes", "Repsol\nSoluciones", "Endesa\nX Way", "Others"],
+        "Connectors": [10694, 6354, 5688, 1839],
+        "color": ["#00B140", "#EF4444", "#EAB308", "#64748B"],
+    }
+    import pandas as _pd
+    df_ops = _pd.DataFrame(ops_data)
+    fig_ops = go.Figure(go.Bar(
+        x=df_ops["Connectors"],
+        y=df_ops["Operator"],
+        orientation="h",
+        marker_color=df_ops["color"],
+        text=df_ops["Connectors"].map(lambda v: f"{v:,}"),
+        textposition="outside",
+        textfont=dict(color="#94A3B8", size=11),
+    ))
+    fig_ops.update_layout(
+        template="plotly_dark",
+        paper_bgcolor="#0F172A", plot_bgcolor="#0F172A",
+        height=400, margin=dict(t=10, b=10, l=0, r=60),
+        xaxis=dict(gridcolor="#1E293B", range=[0, 13000]),
+        yaxis=dict(gridcolor="#1E293B"),
+    )
+    st.plotly_chart(fig_ops, use_container_width=True)
+
+st.markdown("---")
+
 # ── Top 10 Emerging bar chart ─────────────────────────────────────────────────
 col_bar, col_strategy = st.columns([1, 1.1])
 
@@ -173,7 +275,7 @@ with col_bar:
         y="province_name",
         orientation="h",
         color="opportunity_score",
-        color_continuous_scale=["#F59E0B", "#EF4444"],
+        color_continuous_scale=["#F5A623", "#00B140"],
         text=top10["cagr_pct"].map(lambda v: f"CAGR {v:.1f}%"),
         template="plotly_dark",
         labels={"opportunity_score": "Opportunity Score", "province_name": "Province"},
@@ -247,13 +349,52 @@ with col_strategy:
         )
 
 st.markdown("---")
+
+# ── EV Type Mix ───────────────────────────────────────────────────────────────
+st.markdown('<p class="section-header">EV Type Mix — Top 10 Provinces (2027)</p>', unsafe_allow_html=True)
+st.markdown(
+    '<span style="font-size:0.8rem;color:#94A3B8;">'
+    '<span class="abbr-tooltip" data-tooltip="Battery Electric Vehicle — runs entirely on electricity, no combustion engine">BEV</span> drivers '
+    'require fast <span class="abbr-tooltip" data-tooltip="High Power Charging — DC fast charging ≥150 kW">HPC</span> charging for interurban trips '
+    '— they cannot rely on slow <span class="abbr-tooltip" data-tooltip="Alternating Current — standard electricity type used for slow home/destination charging">AC</span> chargers. '
+    '<span class="abbr-tooltip" data-tooltip="Plug-in Hybrid Electric Vehicle — electric + combustion engine, can charge from a socket">PHEV</span>/'
+    '<span class="abbr-tooltip" data-tooltip="Range Extended Electric Vehicle — electric drive with a small combustion range extender">REEV</span> '
+    'drivers have a combustion fallback. The higher a province\'s BEV share, the more urgent the HPC deployment. '
+    'Madrid and Barcelona show the highest absolute BEV counts, driving the strongest business case for HPC investment.'
+    '</span>',
+    unsafe_allow_html=True,
+)
+df_mix = load_ev_type_mix()
+df_mix_long = df_mix.melt(id_vars="province_name", value_vars=["bev", "phev", "reev"],
+                           var_name="type", value_name="vehicles")
+df_mix_long["type"] = df_mix_long["type"].map({"bev": "BEV", "phev": "PHEV", "reev": "REEV"})
+fig_mix = px.bar(
+    df_mix_long,
+    x="vehicles", y="province_name",
+    color="type",
+    orientation="h",
+    color_discrete_map={"BEV": "#00B140", "PHEV": "#00A9CE", "REEV": "#F5A623"},
+    template="plotly_dark",
+    labels={"vehicles": "EV Fleet 2027", "province_name": "Province", "type": "EV Type"},
+    barmode="stack",
+)
+fig_mix.update_layout(
+    paper_bgcolor="#0F172A", plot_bgcolor="#0F172A",
+    height=320, margin=dict(t=10, b=10, l=0, r=0),
+    xaxis=dict(gridcolor="#1E293B", tickformat=","),
+    yaxis=dict(gridcolor="#1E293B"),
+    legend=dict(orientation="h", y=-0.18, x=0.5, xanchor="center", font=dict(color="#94A3B8")),
+)
+st.plotly_chart(fig_mix, use_container_width=True)
+
+st.markdown("---")
 st.markdown('<p class="section-header">All Provinces — Full Opportunity Ranking</p>', unsafe_allow_html=True)
 
 def _color_quad(val: str) -> str:
     return {
-        "Leader":   "background-color:#1E3A5F; color:#93C5FD",
-        "Mature":   "background-color:#064E3B; color:#6EE7B7",
-        "Emerging": "background-color:#78350F; color:#FCD34D",
+        "Leader":   "background-color:#0A2936; color:#00A9CE",
+        "Mature":   "background-color:#0A2E1A; color:#7DC855",
+        "Emerging": "background-color:#2A1A08; color:#F5A623",
         "Lagging":  "background-color:#1E293B; color:#94A3B8",
     }.get(val, "")
 

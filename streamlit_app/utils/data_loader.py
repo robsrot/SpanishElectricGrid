@@ -50,6 +50,11 @@ def load_provinces() -> gpd.GeoDataFrame:
 
 
 @st.cache_data
+def load_ev_type_mix() -> pd.DataFrame:
+    return pd.read_csv(DATA_DIR / "ev_type_mix.csv")
+
+
+@st.cache_data
 def load_provinces_geojson_str() -> str:
     with open(DATA_DIR / "spain_provinces.geojson") as f:
         return f.read()
