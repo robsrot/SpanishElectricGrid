@@ -1,2 +1,0 @@
-total_ev_projected_2027,bev_fleet_2027,phev_fleet_2027,reev_fcev_fleet_2027,best_model,model_rmse_test,model_mape_test_pct,data_source,ev_scope,attrition_rate_pct_yr
-1412640,810222,599700,2718,"SARIMA(1, 1, 1)x(1, 0, 1, 12)",1393.3,9.27,DGT Microdatos Matriculaciones 2015-2024,BEV + PHEV + REEV + FCEV  (HEV excluded),2.0827
