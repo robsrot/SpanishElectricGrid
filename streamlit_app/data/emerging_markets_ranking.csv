@@ -1,0 +1,53 @@
+province_code,province_name,auto_community,ev_fleet_2027,cagr,quadrant,opportunity_score,reg_base,reg_end
+06,Badajoz,Extremadura,8420,0.498,Emerging,98.3,120,268
+02,Albacete,Castilla-La Mancha,6180,0.469,Emerging,85.0,88,194
+19,Guadalajara,Castilla-La Mancha,4920,0.366,Emerging,73.0,71,132
+16,Cuenca,Castilla-La Mancha,3640,0.341,Emerging,68.5,53,114
+10,Cáceres,Extremadura,5280,0.318,Emerging,64.2,78,162
+49,Zamora,Castilla y León,3120,0.312,Emerging,61.8,46,96
+37,Salamanca,Castilla y León,7840,0.308,Emerging,60.4,116,240
+42,Soria,Castilla y León,1840,0.302,Emerging,57.9,28,58
+34,Palencia,Castilla y León,3280,0.296,Emerging,55.1,48,98
+47,Valladolid,Castilla y León,11640,0.289,Emerging,52.7,174,354
+28,Madrid,Comunidad de Madrid,635635,0.245,Leader,95.0,9400,14520
+08,Barcelona,Cataluña,184440,0.238,Leader,91.2,2720,4180
+46,Valencia,Comunidad Valenciana,56301,0.231,Leader,84.7,840,1290
+41,Sevilla,Andalucía,38920,0.219,Leader,78.3,578,882
+20,Guipúzcoa,País Vasco,28640,0.214,Leader,74.1,426,648
+48,Vizcaya,País Vasco,35480,0.208,Leader,70.6,528,800
+15,La Coruña,Galicia,22760,0.201,Leader,65.9,340,514
+31,Navarra,Navarra,18240,0.198,Leader,63.2,272,410
+01,Álava,País Vasco,14520,0.195,Leader,60.8,218,328
+07,Baleares,Baleares,24380,0.191,Leader,58.4,364,548
+03,Alicante,Comunidad Valenciana,38640,0.176,Mature,71.4,582,858
+17,Girona,Cataluña,19840,0.171,Mature,68.2,300,440
+43,Tarragona,Cataluña,16280,0.168,Mature,65.8,246,360
+29,Málaga,Andalucía,28920,0.165,Mature,63.1,440,642
+50,Zaragoza,Aragón,26480,0.163,Mature,61.4,400,582
+30,Murcia,Murcia,24640,0.158,Mature,58.7,374,542
+36,Pontevedra,Galicia,14280,0.154,Mature,55.9,218,314
+11,Cádiz,Andalucía,18640,0.151,Mature,53.6,284,408
+33,Asturias,Asturias,18920,0.148,Mature,51.2,290,416
+13,Ciudad Real,Castilla-La Mancha,8640,0.145,Mature,48.9,132,188
+23,Jaén,Andalucía,7840,0.142,Mature,46.5,120,170
+04,Almería,Andalucía,9480,0.138,Lagging,42.1,146,206
+44,Teruel,Aragón,2640,0.132,Lagging,38.6,42,58
+22,Huesca,Aragón,5480,0.128,Lagging,35.8,86,118
+27,Lugo,Galicia,5280,0.124,Lagging,33.1,82,112
+32,Ourense,Galicia,4280,0.121,Lagging,30.7,68,92
+24,León,Castilla y León,7840,0.118,Lagging,28.4,124,168
+05,Ávila,Castilla y León,3080,0.115,Lagging,26.1,50,66
+09,Burgos,Castilla y León,8240,0.112,Lagging,23.8,132,174
+40,Segovia,Castilla y León,3480,0.109,Lagging,21.5,58,76
+45,Toledo,Castilla-La Mancha,9840,0.106,Lagging,19.2,162,210
+21,Huelva,Andalucía,6480,0.103,Lagging,16.9,106,136
+14,Córdoba,Andalucía,10480,0.099,Lagging,14.6,172,220
+18,Granada,Andalucía,14280,0.096,Lagging,12.3,234,298
+25,Lleida,Cataluña,7840,0.093,Lagging,10.1,132,166
+26,La Rioja,La Rioja,5480,0.091,Lagging,8.2,92,114
+39,Cantabria,Cantabria,6280,0.088,Lagging,6.4,102,126
+35,Las Palmas,Canarias,12480,0.085,Lagging,4.7,210,256
+38,Santa Cruz de Tenerife,Canarias,9840,0.082,Lagging,3.1,166,200
+12,Castellón,Comunidad Valenciana,8640,0.079,Lagging,1.8,148,178
+52,Melilla,Melilla,480,0.062,Lagging,0.5,10,12
+51,Ceuta,Ceuta,380,0.058,Lagging,0.3,8,10
