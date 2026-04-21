@@ -297,29 +297,33 @@ with col_strategy:
     with tab1:
         st.markdown(
             '<div class="phase-card phase-1">'
-            '<p class="phase-title">Phase 1 — Defend Leaders (2025–2026)</p>'
-            '<p class="phase-body">Prioritise Madrid (635K EVs), Barcelona (184K), Valencia (56K) and País Vasco. '
-            'These provinces generate 60%+ of national charging demand. '
-            'Lock in Iberdrola market share before Repsol and Endesa X scale up.</p>'
+            '<p class="phase-title">Phase 1 — Deploy Sufficient Stations (Q3 2026)</p>'
+            '<p class="phase-body">Build immediately where grid capacity is already available — '
+            'no substation work required. These locations can break ground now. '
+            'Prioritise corridors crossing Leader provinces (Madrid, Barcelona, Valencia) '
+            'to lock in Iberdrola market share before Repsol and Endesa X scale up.</p>'
             '</div>',
             unsafe_allow_html=True,
         )
         st.markdown(
             '<div class="phase-card phase-2">'
-            '<p class="phase-title">Phase 2 — Capture Emerging (2026–2027)</p>'
-            '<p class="phase-body">Deploy on A-66 (Ruta de la Plata) and A-4 corridors crossing '
-            'Badajoz (CAGR 49.8%), Cáceres, Zamora, Salamanca. '
-            'Iberdrola controls i-DE grid in Extremadura and Castilla y León — '
-            'vertical integration advantage is unique to Iberdrola here.</p>'
+            '<p class="phase-title">Phase 2 — Upgrade i-DE Congested Nodes (Q4 2026)</p>'
+            '<p class="phase-body">Initiate substation upgrades at Congested locations where '
+            'i-DE manages the grid — AP-9 (A Coruña), AP-7N, A-3, N-332, AP-68. '
+            'Because i-DE is Iberdrola\'s own distribution subsidiary, these upgrades '
+            'bypass third-party approval entirely. '
+            'Grid upgrade revenue + charging revenue at the same node.</p>'
             '</div>',
             unsafe_allow_html=True,
         )
         st.markdown(
             '<div class="phase-card phase-3">'
-            '<p class="phase-title">Phase 3 — Optimise Mature (2027)</p>'
-            '<p class="phase-body">Fill gaps in Zaragoza, Murcia, Alicante, Tarragona, Girona. '
-            'These provinces show stable growth (CAGR 14–18%) but require fewer new stations '
-            'as existing HPC coverage is denser. Focus on utilisation rate maximisation.</p>'
+            '<p class="phase-title">Phase 3 — Coordinate Remaining Congested Nodes (2027)</p>'
+            '<p class="phase-body">Negotiate grid reinforcement with Endesa and Viesgo for the '
+            'remaining Congested locations — A-4, A-49, AP-7N (Endesa grid). '
+            'In parallel, activate Moderate stations as minor upgrades complete. '
+            'Focus on corridors in high-CAGR Emerging provinces: Badajoz (49.8%), '
+            'Albacete (46.9%), Guadalajara (36.6%).</p>'
             '</div>',
             unsafe_allow_html=True,
         )
@@ -327,8 +331,10 @@ with col_strategy:
     with tab2:
         emerging_top = df_em[df_em["quadrant"] == "Emerging"].nlargest(10, "opportunity_score")
         st.markdown(
-            "**First-mover strategy:** Deploy immediately in the top 10 Emerging provinces "
-            "before competitors (Repsol, Endesa X, Tesla) establish dominance in high-CAGR markets."
+            "**Congested-first strategy:** Prioritise high-CAGR Emerging provinces where "
+            "grid congestion is the only barrier — resolving it unlocks both the charger revenue "
+            "and the grid upgrade fee at the same node. Iberdrola's i-DE controls the grid "
+            "along the top Emerging corridors (A-66, A-3, AP-9), enabling internal fast-track approval."
         )
         st.dataframe(
             emerging_top[["province_name", "auto_community", "cagr_pct", "ev_fleet_2027", "opportunity_score"]]
